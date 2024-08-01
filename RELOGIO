@@ -1,0 +1,16 @@
+from tkinter import *
+from time import strftime
+
+root = Tk()
+root.title('Relógio Digital')
+
+def atualizar_relogio():
+    tempo_atual = strftime('%H:%M:%S %p')
+    lbl.config(text=tempo_atual)
+    lbl.after(1000, atualizar_relogio)
+
+lbl = Label(root, font=('calibri', 40, 'bold'), background='purple', foreground='white')
+lbl.pack(anchor='center')
+
+atualizar_relogio()
+root.mainloop()
